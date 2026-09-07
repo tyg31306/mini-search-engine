@@ -1,9 +1,5 @@
-from pathlib import Path
 from itertools import islice
 from tokenizer import tokenize
-
-
-DOCUMENT_DIR = Path("../data/documents")
 
 def build_index(document_dir, num_documents=None):
     index = {}
