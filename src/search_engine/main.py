@@ -1,8 +1,8 @@
 from pathlib import Path
-from index import build_index
+from src.search_engine.index import build_index
 from search import search
 from snippets import get_snippet
-DOCUMENT_DIR = Path("../data/documents")
+DOCUMENT_DIR = Path("../../data/documents")
 num_documents = 10000
 index = build_index(DOCUMENT_DIR, num_documents)
 while True:

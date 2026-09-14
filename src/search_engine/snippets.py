@@ -1,7 +1,7 @@
 from pathlib import Path
-from tokenizer import tokenize
+from search_engine.tokenizer import tokenize
 
-DOCUMENT_DIR = Path("../data/documents")
+DOCUMENT_DIR = Path("../../data/documents")
 def get_snippet(doc_path, query):
     file_path = DOCUMENT_DIR / f"{doc_path}.txt"
     text = file_path.read_text(encoding="utf-8")

@@ -1,4 +1,4 @@
-from tokenizer import tokenize
+from search_engine.tokenizer import tokenize
 import math
 
 def search(index, query, num_docs, k=10):
@@ -9,11 +9,11 @@ def search(index, query, num_docs, k=10):
     relevance_scores = dict()
 
     if len(terms) == 0:
-        return set()
+        return {}
 
     for term in terms:
         if term not in index:
-            return set()
+            return {}
         else:
             document_sets.append(set(index[term]))
 

@@ -1,5 +1,5 @@
 from itertools import islice
-from tokenizer import tokenize
+from search_engine.tokenizer import tokenize
 
 def build_index(document_dir, num_documents=None):
     index = {}
