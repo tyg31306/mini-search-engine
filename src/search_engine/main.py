@@ -1,10 +1,24 @@
 from pathlib import Path
-from src.search_engine.index import build_index
-from search import search
-from snippets import get_snippet
+
+from search_engine.index import build_index
+from search_engine.search import search
+from search_engine.snippets import get_snippet
+from search_engine.persistence import save_index, load_index
+INDEX_FILE = Path("data/index.pkl")
 DOCUMENT_DIR = Path("../../data/documents")
 num_documents = 10000
-index = build_index(DOCUMENT_DIR, num_documents)
+if INDEX_FILE.exists():
+    print("Existing index loaded.")
+    index = load_index(INDEX_FILE)
+else:
+    print("Building index...")
+    index = build_index(DOCUMENT_DIR, num_documents)
+
+    INDEX_FILE.parent.mkdir(parents=True, exist_ok=True)
+    save_index(index, INDEX_FILE)
+
+    print("Index saved.")
+
 while True:
     user_input = input("> ")
     k = 10
